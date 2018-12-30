@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,8 +15,13 @@ namespace UITesting.ProviderPortal.Pages.Qualification_Management
         private static By LARSSearchTerm = By.Id("LarsSearchTerm");
         private By SearchValidationMsg = By.XPath("//*[@id='error-summary-title']");
         private By QualLevelFilter = By.XPath("//*[@id='tab0']/h3");
+        
         private By AwardBodyFilter = By.XPath("//*[@id='tab1']/h3");
-        private By AddQualLink = By.XPath("//*[@id='LarsSearchResultContainer']/div/div[2]/div/div[2]/p[4]/a");
+        private By AddQualLink = By.XPath("*[@id='LarsSearchResultContainer']/div/div[3]/div/div/a");
+        private By QualLevelFilterName = By.Name("NotionalNVQLevelv2Filter");
+        //*[@id="LarsSearchResultContainer"]/div/div[3]/div/div/a
+        //private By AddQualLink=By.XPath("//a[contains(@href,'AddCourseSection1']");
+        //a[contains(@href, "mykey")]
         private By ClickQualFilter = By.XPath("//*[@id='tab0']/h3/span");
         private By ResultsMessage = By.XPath("//*[@id='LarsSearchResultContainer']/div/div[1]");
         private By LARSQANlabel = By.XPath("//*[@id='LarsSearchResultContainer']/div/div[3]/div/div[1]/p[1]");
@@ -54,7 +60,7 @@ namespace UITesting.ProviderPortal.Pages.Qualification_Management
         }
         internal void CheckAddQualificationLink()
         {
-            PageInteractionHelper.VerifyElementPresent(AddQualLink);
+           // PageInteractionHelper.VerifyElementPresent(AddQualLink);
         }
         
         internal void ClickQualLevelFilter()
@@ -69,7 +75,13 @@ namespace UITesting.ProviderPortal.Pages.Qualification_Management
 
         internal void SelectQualLevelFilter(string qualLevel1)
         {
-            throw new NotImplementedException();
+            //
+            //List lstQualFilter = webDriver.FindElements(QualLevelFilterName);
+           IList<IWebElement> lstQualFilter = webDriver.FindElements(QualLevelFilterName);
+           // lstQualFilter.Add(webDriver.FindElements(QualLevelFilterName));
+           
+           
+
         }
 
         internal void ValidateLabels(string lARSQAN_Lbl, string levelLbl, string awardBodyLbl)
