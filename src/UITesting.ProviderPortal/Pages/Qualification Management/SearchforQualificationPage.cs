@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
-
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,16 +13,13 @@ namespace UITesting.ProviderPortal.Pages.Qualification_Management
         private static String PAGE_TITLE = "Find a Qualification";
         private static By LARSSearchTerm = By.Id("LarsSearchTerm");
         private By SearchValidationMsg = By.XPath("//*[@id='error-summary-title']");
-        private By QualLevelFilter = By.XPath("//*[@id='tab0']/h3");
-        
-        private By AwardBodyFilter = By.XPath("//*[@id='tab1']/h3");
-        private By AddQualLink = By.XPath("*[@id='LarsSearchResultContainer']/div/div[3]/div/div/a");
+        private By QualLevelFilter = By.XPath("//*[@id='LarsSearchResultContainer']/div/div[2]/div[1]/div[1]");
+        private By AwardBodyFilter = By.XPath("//*[@id='LarsSearchResultContainer']/div/div[2]/div[2]/div[1]");
         private By QualLevelFilterName = By.Name("NotionalNVQLevelv2Filter");
-        //*[@id="LarsSearchResultContainer"]/div/div[3]/div/div/a
-        //private By AddQualLink=By.XPath("//a[contains(@href,'AddCourseSection1']");
-        //a[contains(@href, "mykey")]
+        private By AddQualLink= By.XPath("//a[contains(@href, '/Courses/AddCourseSection')]");
         private By ClickQualFilter = By.XPath("//*[@id='tab0']/h3/span");
-        private By ResultsMessage = By.XPath("//*[@id='LarsSearchResultContainer']/div/div[1]");
+       
+        private By ResultsMessage = By.XPath(" //*[@id='LarsSearchResultContainer']/div/div[1]");
         private By LARSQANlabel = By.XPath("//*[@id='LarsSearchResultContainer']/div/div[3]/div/div[1]/p[1]");
         private By LevelLabel = By.XPath("//*[@id='LarsSearchResultContainer']/div/div[3]/div/div[1]/p[2]");
         private By AwardBodyLabel = By.XPath("//*[@id='LarsSearchResultContainer']/div/div[3]/div/div[1]/p[3]");
@@ -60,7 +56,7 @@ namespace UITesting.ProviderPortal.Pages.Qualification_Management
         }
         internal void CheckAddQualificationLink()
         {
-           // PageInteractionHelper.VerifyElementPresent(AddQualLink);
+           PageInteractionHelper.VerifyElementPresent(AddQualLink);
         }
         
         internal void ClickQualLevelFilter()
@@ -70,18 +66,12 @@ namespace UITesting.ProviderPortal.Pages.Qualification_Management
 
         internal void CheckResultsMessage(string resultsMsg)
         {
-          //  FormCompletionHelper.VerifyText(ResultsMessage, resultsMsg);
+            FormCompletionHelper.VerifyText(ResultsMessage, resultsMsg);
         }
 
-        internal void SelectQualLevelFilter(string qualLevel1)
+        internal void SelectQualLevelFilter(string qualLevel)
         {
-            //
-            //List lstQualFilter = webDriver.FindElements(QualLevelFilterName);
-           IList<IWebElement> lstQualFilter = webDriver.FindElements(QualLevelFilterName);
-           // lstQualFilter.Add(webDriver.FindElements(QualLevelFilterName));
-           
-           
-
+            webDriver.FindElement(By.XPath("//input[@value='" + qualLevel + "']")).Click();
         }
 
         internal void ValidateLabels(string lARSQAN_Lbl, string levelLbl, string awardBodyLbl)
@@ -90,27 +80,21 @@ namespace UITesting.ProviderPortal.Pages.Qualification_Management
             FormCompletionHelper.VerifyText(LevelLabel, levelLbl);
             FormCompletionHelper.VerifyText(AwardBodyLabel, awardBodyLbl);
         }
-        internal void ResetFilters()
-        {
-
-            webDriver.FindElement(SelectQualLevel).Click();
-            PageInteractionHelper.IsElementPresent(ResetFilter);
-            webDriver.FindElement(ResetFilter).Click();
-        }
-
+        
         internal void SelectAwardBodyFilter(string strAwardBody)
         {
-            throw new NotImplementedException();
+            webDriver.FindElement(By.XPath("//input[@value='" + strAwardBody + "']")).Click();
         }
 
         internal void ClickAddQualification()
         {
-            throw new NotImplementedException();
+            webDriver.FindElement(By.XPath("//a[contains(@href, '/Courses/AddCourseSection')]")).Click();
         }
 
         internal void ResetAllFilters()
         {
-            throw new NotImplementedException();
+            PageInteractionHelper.IsElementPresent(ResetFilter);
+            webDriver.FindElement(ResetFilter).Click();
         }
 
         internal void ValidateResultsMessage(string strResultsMsg)
@@ -120,7 +104,7 @@ namespace UITesting.ProviderPortal.Pages.Qualification_Management
 
         internal void ValidateFilters()
         {
-            throw new NotImplementedException();
+            FormCompletionHelper.IsElementPresent(QualLevelFilter);
         }
 
         internal void GotoAddCoursePage()

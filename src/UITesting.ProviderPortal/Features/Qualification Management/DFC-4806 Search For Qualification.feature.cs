@@ -153,8 +153,8 @@ this.FeatureBackground();
  testRunner.And("I want to see LARS/QAN number \"LARS/QAN\", Level \"Level\" and awarding body \"Awardi" +
                     "ng body\" for each qualification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 28
- testRunner.And("I want to see the number of results returned for the name \"Found results for Biol" +
-                    "ogy\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I want to see the number of results returned for the name \"Found 125 results for " +
+                    "Biology\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 29
  testRunner.And("I want to see a Link to add this qualification.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 30
@@ -178,9 +178,9 @@ this.FeatureBackground();
 #line 33
  testRunner.Given("I have searched for a term \"Maths\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 34
- testRunner.And("I select one level for qualification level \"Level 2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I select one level for qualification level \"2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 35
- testRunner.Then("I should be able to select another level for qualification level \"Level X\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I should be able to select another level for qualification level \"X\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 36
  testRunner.When("I click reset all filters should be cleared.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden

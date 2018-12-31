@@ -1,22 +1,23 @@
 ﻿using System;
 using TechTalk.SpecFlow;
 using UITesting.ProviderPortal.Pages.Qualification_Management;
+using UITesting.ProviderPortal.Pages.Course_Management;
 
 namespace UITesting.ProviderPortal.StepDefinitions.Qualification_Management
 {
     [Binding]
-    public class SearchForQualificationSteps: TestSupport.BaseTest
+    public class SearchForQualificationSteps : TestSupport.BaseTest
     {
         [Given(@"I have accessed the Course Directory as a provider")]
         public void GivenIHaveAccessedTheCourseDirectoryAsAProvider()
         {
             webDriver.Url = TestSupport.Configurator.GetConfiguratorInstance().GetQualUrl();
-        }        
+        }
         [Given(@"I have accessed the Qualifications page")]
         public void GivenIHaveAccessedTheQualificationsPage()
         {
             SearchforQualificationPage SearchforQualificationPage = new SearchforQualificationPage(webDriver);
-        }        
+        }
         [Given(@"there is a field to enter the LARS/QAN number\.")]
         public void GivenThereIsAFieldToEnterTheLARSQANNumber_()
         {
@@ -70,7 +71,7 @@ namespace UITesting.ProviderPortal.StepDefinitions.Qualification_Management
         {
             SearchforQualificationPage SearchforQualificationPage = new SearchforQualificationPage(webDriver);
             SearchforQualificationPage.EnterLARS_QANNumber(strSearchTerm);
-        }        
+        }
         [Given(@"I have clicked to add the first qualification")]
         public void GivenIHaveClickedToAddTheFirstQualification()
         {
@@ -87,7 +88,7 @@ namespace UITesting.ProviderPortal.StepDefinitions.Qualification_Management
         public void ThenIWantToSeeTheQualificationsListedForThatLARSQANNumber()
         {
             //ScenarioContext.Current.Pending();
-        }        
+        }
         [Then(@"I want to see LARS/QAN number ""(.*)"", Level ""(.*)"" and awarding body ""(.*)"" for each qualification")]
         public void ThenIWantToSeeLARSQANNumberLevelAndAwardingBodyForEachQualification(string LARSQAN_Lbl, string LevelLbl, string AwardBodyLbl)
         {
@@ -151,8 +152,7 @@ namespace UITesting.ProviderPortal.StepDefinitions.Qualification_Management
         [Then(@"I should be taken to add course screen\.")]
         public void ThenIShouldBeTakenToAddCourseScreen_()
         {
-            SearchforQualificationPage SearchforQualificationPage = new SearchforQualificationPage(webDriver);
-            SearchforQualificationPage.GotoAddCoursePage();
+            AddCoursePage AddCoursePage = new AddCoursePage(webDriver);
         }
     }
 }

@@ -25,14 +25,14 @@ Scenario: Search for a Qualification using Qualification Name
 	Given I have entered a Qualification Name "Biology"
 	Then I want to see the Qualifications listed for that LARS/QAN Number
 	And I want to see LARS/QAN number "LARS/QAN", Level "Level" and awarding body "Awarding body" for each qualification
-	And I want to see the number of results returned for the name "Found results for Biology"
+	And I want to see the number of results returned for the name "Found 125 results for Biology"
 	And I want to see a Link to add this qualification.
 	And I want to see Level and Awarding body on the screen.
 @CI
 Scenario: Select and clear filters for Qualification Level 
 	Given I have searched for a term "Maths"
-	And I select one level for qualification level "Level 2"
-	Then I should be able to select another level for qualification level "Level X"
+	And I select one level for qualification level "2"
+	Then I should be able to select another level for qualification level "X"
 	When I click reset all filters should be cleared.
 @CI
 Scenario: Select and clear filters for Awarding Body
