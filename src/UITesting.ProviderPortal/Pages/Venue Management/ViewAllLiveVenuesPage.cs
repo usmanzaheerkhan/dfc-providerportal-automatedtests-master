@@ -48,7 +48,7 @@ namespace UITesting.ProviderPortal.Pages.Venue_Management
         {
             PageInteractionHelper.VerifyText(webDriver.FindElement(By.XPath(VENUE_DATA)).Text, "Archive");
         }
-
+        
         internal void ValidateVenue()
         {
             PageInteractionHelper.VerifyText(webDriver.FindElement(By.XPath(VENUE_DATA)).Text, VenueData.VenueName);
@@ -76,7 +76,7 @@ namespace UITesting.ProviderPortal.Pages.Venue_Management
 
         internal void ViewArchivedVenues()
         {
-            webDriver.FindElement(By.XPath(ARCH_TAB)).Click();
+            //webDriver.FindElement(By.XPath(ARCH_TAB)).Click();
         }
 
         internal void VenueAddedBanner()

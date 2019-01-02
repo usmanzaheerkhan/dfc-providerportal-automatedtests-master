@@ -27,8 +27,7 @@ namespace UITesting.ProviderPortal.StepDefinitions.VenueManagement
         {
             ViewAllLiveVenuesPage ViewAllLiVeVenuesPage = new ViewAllLiveVenuesPage(webDriver);
             Venue_Data VenueData = new Venue_Data();
-            ViewAllLiVeVenuesPage.SearchProvider(VenueData.UKPRNNo);
-            
+            ViewAllLiVeVenuesPage.SearchProvider(VenueData.UKPRNNo);          
         }
         
         [When(@"I have select Add Venue")]
