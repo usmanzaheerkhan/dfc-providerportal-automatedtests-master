@@ -11,7 +11,8 @@ namespace UITesting.ProviderPortal.Pages.Course_Management
     
     public class ViewYourCoursesPage : TestSupport.BasePage 
     {
-        private static String PAGE_TITLE = "Your Courses";
+        private static String PAGE_TITLE = "Your courses";
+        private static By ViewCourseDescriptionLink = By.XPath("//*[@id='main-content']/div/div/div[2]/div/ul/li[2]/div/div/p/a");
         public ViewYourCoursesPage(IWebDriver webDriver):base(webDriver)
         {
             SelfVerify();
@@ -19,6 +20,10 @@ namespace UITesting.ProviderPortal.Pages.Course_Management
         protected override bool SelfVerify()
         {
             return PageInteractionHelper.VerifyPageHeading(this.GetPageHeading(), PAGE_TITLE);
+        }
+        internal void CheckViewCourseDescription()
+        {
+            PageInteractionHelper.IsElementPresent(ViewCourseDescriptionLink);
         }
     }
 }

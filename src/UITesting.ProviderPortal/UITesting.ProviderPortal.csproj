@@ -158,6 +158,7 @@
     <Compile Include="StepDefinitions\AddCourse_AddDescriptionSteps.cs" />
     <Compile Include="StepDefinitions\AddVenue_EditVenueAddressSteps.cs" />
     <Compile Include="StepDefinitions\Course Management\AddCourseSteps.cs" />
+    <Compile Include="StepDefinitions\Course Management\ViewYourCourses_Line1Steps.cs" />
     <Compile Include="StepDefinitions\DFC_5112AddProviderSearchUKRLPSteps.cs" />
     <Compile Include="StepDefinitions\ExampleSteps.cs" />
     <Compile Include="StepDefinitions\Qualification Management\SearchForQualificationSteps.cs" />
